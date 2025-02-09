@@ -37,7 +37,7 @@ const uploadToIPFS = async (filePath) => {
 
 uploadToIPFS(filePath)
   .then((res) => {
-    console.log(res.pin.cid);
+    console.log(res.cid.toString());
     process.exit(0);
   })
   .catch((err) => {
