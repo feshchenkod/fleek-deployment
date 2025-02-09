@@ -1,7 +1,9 @@
 # fleek-deployment
 
-run:
+Deploy to storage and update ENS:
 
 ```
-node fleekDeployIPFS.js file
+IPFS_HASH=`node fleekDeployStorage.js file`
+echo $IPFS_HASH
+node updateENS.mjs  $IPFS_HASH
 ```

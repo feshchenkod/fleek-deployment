@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "@ensdomains/ensjs": "^4.0.2",
     "@fleek-platform/sdk": "^3.5.1",
     "dotenv": "^16.4.7",
-    "native-fetch": "^4.0.2"
+    "native-fetch": "^4.0.2",
+    "viem": "^2.22.23"
   }
 }
