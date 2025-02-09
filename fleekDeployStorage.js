@@ -26,26 +26,10 @@ if (!filePath) {
   process.exit(1);
 }
 
-const nodeStreamToReadableStream = (nodeStream) => {
-  return new ReadableStream({
-    start(controller) {
-      nodeStream.on("data", (chunk) => controller.enqueue(chunk));
-      nodeStream.on("end", () => controller.close());
-      nodeStream.on("error", (err) => controller.error(err));
-    },
-    cancel() {
-      nodeStream.destroy();
-    },
-  });
-};
-
 const uploadToStorage = async (filePath) => {
-  const fileStream = fs.createReadStream(filePath);
-  const readableStream = nodeStreamToReadableStream(fileStream);
-
   const fileLike = {
     name: path.basename(filePath),
-    stream: () => readableStream,
+    stream: () => Readable.toWeb(fs.createReadStream(filePath)),
   };
 
   const result = await fleekSdk.storage().uploadFile({
