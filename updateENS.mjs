@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const ENS_DOMAIN = process.env.ENS_DOMAIN;
+const RESOLVER_ADDRESS = process.env.RESOLVER_ADDRESS;
 const IPFS_HASH = "ipfs://" + process.argv[2];
 
 const account = privateKeyToAccount(process.env.PRIVATE_KEY);
@@ -21,5 +22,5 @@ const wallet = createWalletClient({
 const hash = await setContentHashRecord(wallet, {
   name: ENS_DOMAIN,
   contentHash: IPFS_HASH,
-  resolverAddress: "0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63",
+  resolverAddress: RESOLVER_ADDRESS,
 });
