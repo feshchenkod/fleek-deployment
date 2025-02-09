@@ -2,7 +2,6 @@
   "dependencies": {
     "@fleek-platform/sdk": "^3.5.1",
     "dotenv": "^16.4.7",
-    "luxon": "^3.5.0",
     "native-fetch": "^4.0.2"
   }
 }
